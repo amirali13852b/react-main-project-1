@@ -1,29 +1,32 @@
-import { useState } from 'react'
-import './App.css'
-import React from 'react';
-import Header from './components/Header';
-import Hero from './components/Hero';
-import EventSection from './components/EventSection';
-import TopSingers from './components/TopSingers';
-import BigPictures from './components/BigPictures';
-import FAQ from './components/FAQ';
-import Footer from './components/Footer';
+// src/App.js
+
+import './App.css';
+import Header from './component/Header';
+import Search from './component/Search';
+import ConcertsSection from './component/ConcertsSection';
+import ShowsSection from './component/ShowsSection';
+import TopSingersSection from './component/TopSingersSection';
+import SportsSection from './component/SportsSection';
+import FestivalsSection from './component/FestivalsSection';
+import BigPicturesSection from './component/BigPicturesSection';
+import FAQSection from './component/FAQSection'; 
+import Footer from './component/Footer'; 
 
 function App() {
   return (
-    <div className="bg-black text-white">
+    <>
       <Header />
-      <Hero />
-      <EventSection type="concerts" />
-      <EventSection type="shows" />
-      <TopSingers />
-      <EventSection type="sports" />
-      <EventSection type="festivals" />
-      <BigPictures />
-      <FAQ />
-      <Footer />
-    </div>
-  )
+      <Search />
+      <ConcertsSection />
+      <ShowsSection />
+      <TopSingersSection />
+      <SportsSection />
+      <FestivalsSection />
+      <BigPicturesSection />
+      <FAQSection /> 
+      <Footer/>
+    </>
+  );
 }
 
-export default App
+export default App;

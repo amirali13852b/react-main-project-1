@@ -1,46 +1,46 @@
-// components/Footer.js
-import React from 'react';
-import logo from '../img/logo.svg';
-import facebook from '../img/facebook.svg';
-import instagram from '../img/inestagram.svg';
-import linkedin from '../img/linkdin.svg';
-import youtube from '../img/youtube.svg';
-import telegram from '../img/telegram.svg';
-
 const Footer = () => {
-  const navItems = ['Home', 'Contact us', 'About us', 'Privacy Policy'];
+  const navLinks = [
+    { text: 'Home', href: '#' },
+    { text: 'Contact us', href: '#' },
+    { text: 'About us', href: '#' },
+    { text: 'Privacy Policy', href: '#' },
+  ];
+
+
   const socialIcons = [
-    { src: facebook, alt: 'Facebook' },
-    { src: instagram, alt: 'Instagram' },
-    { src: linkedin, alt: 'LinkedIn' },
-    { src: youtube, alt: 'YouTube' },
-    { src: telegram, alt: 'Telegram' }
+    { src: '/img/facebook.svg', alt: 'Facebook' },
+    { src: '/img/inestagram.svg', alt: 'Instagram' },
+    { src: '/img/linkdin.svg', alt: 'LinkedIn' },
+    { src: '/img/youtube.svg', alt: 'YouTube' },
+    { src: '/img/telegram.svg', alt: 'Telegram' },
   ];
 
   return (
     <footer className="">
       <div className="container mx-auto px-6">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          {/* Left side - Logo */}
-          <div className="mb-6 md:mb-0">
-            <img src={logo} alt="Evenjo Logo" />
+      
+        <div className="flex flex-col items-center">
+        
+          <div className="mb-6">
+            <img src="/img/logo.svg" alt="Evenjo Logo" />
           </div>
 
-          {/* Middle - Navigation */}
-          <nav className="flex flex-wrap justify-center gap-6 mb-6 md:mb-0">
-            {navItems.map((item, index) => (
+          <nav className="flex flex-wrap justify-center gap-6 mb-6">
+            {navLinks.map((link, index) => (
               <a
                 key={index}
-                href="#"
-                className="text-[#999999] transition-colors duration-300 hover:text-[#C14FE6]"
+                href={link.href}
+                style={{ color: '#999999', transition: 'color 0.3s', cursor: 'pointer' }}
+                onMouseOver={(e) => (e.target.style.color = '#C14FE6')}
+                onMouseOut={(e) => (e.target.style.color = '#999999')}
               >
-                {item}
+                {link.text}
               </a>
             ))}
           </nav>
 
-          {/* Right side - Social Icons */}
-          <div className="flex space-x-4">
+       
+          <div className="flex space-x-4 mb-6">
             {socialIcons.map((icon, index) => (
               <a key={index} href="#" className="flex items-center justify-center cursor-pointer">
                 <img src={icon.src} alt={icon.alt} className="w-5 h-5" />
@@ -48,7 +48,7 @@ const Footer = () => {
             ))}
           </div>
         </div>
-        <p className="text-gray-400 text-sm flex justify-center mt-3 mb-5">Copyright © Evenjo</p>
+        <p className="text-gray-400 text-sm flex justify-center">Copyright © Evenjo</p>
       </div>
     </footer>
   );
